@@ -1,0 +1,185 @@
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:black;
+  padding: 15px 30px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: all 0.3s ease; /* 👈 Este efecto hace que el cambio de color sea suave y no brusco */
+}
+
+.nav-links li a:hover {
+  background-color: #800020 !important; /* 👈 Ponle el !important al final */
+  color: white !important;              /* También al texto por si acaso */
+}
+
+
+/* Ocultar el botón de tres barras en computadora */
+.menu-toggle {
+  display: none;
+}
+
+/* --- ESTILOS PARA CELULARES (Pantallas de 768px o menos) --- */
+@media (max-width: 768px) {
+  
+  /* Mostrar el botón en la esquina derecha */
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+  }
+
+  /* Dibujar las 3 líneas horizontales del botón */
+  .menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  /* Transformar la lista en un menú desplegable vertical */
+  .nav-links {
+    display: none; /* Oculto por defecto */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 60px; /* Se despliega justo debajo de la barra */
+    left: 0;
+    background-color: black;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    padding: 15px 0;
+  }
+
+  /* Clase que activa JavaScript para mostrar el menú */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* EXTRA ANIMACIÓN: Transforma las 3 barras en una "X" al abrir */
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+}
+.navbar {
+  /* 🚨 ESTO CONGELA EL MENÚ ARRIBA 🚨 */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que el menú siempre pase por encima de las imágenes y el texto */
+  
+  /* Mantén tus propiedades actuales abajo (Flexbox, colores, etc) */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 15px 30px;
+}
+
+
+/* Contenedor principal en fila */
+.contenedor-redes {
+    display: flex;
+    justify-content: center; /* Los centra en la pantalla */
+    gap: 15px;               /* Deja una separación perfecta entre cada botón */
+    margin: 40px auto;       /* Margen arriba y abajo */
+}
+
+/* Estilo base para los tres botones */
+.boton-red {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #800020; /* Tu color burdeo */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #800020;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Efecto al pasar el mouse por encima (:hover) */
+.boton-red:hover {
+    background-color: transparent;
+    color: #800020;
+    box-shadow: 0 0 12px rgba(128, 0, 32, 0.5);
+    cursor: pointer;
+    transform: translateY(-3px); /* Hace que el botón flote un poquito hacia arriba */
+}
+
+
+.enlace-imagen img {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.enlace-imagen img:hover {
+    opacity: 0.8; /* Efecto sutil de transparencia al pasar el mouse */
+}
