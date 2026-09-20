@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería del tiempo</title>
+  
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="icon" type="image/png" href="imagenes/logo.png">
+
+  <!-- 🎨 ESTILOS LIMPIOS (Solo el efecto de la imagen y el scroll suave) -->
+  <style>
+    /* 🚨 ESTO ACTIVA EL MOVIMIENTO FLUIDO EN TODA LA PÁGINA NATIVAMENTE */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Estilo del Contenedor Especial para una sola imagen grande */
+    .contenedor-una-imagen {
+      max-width: 510px;
+      margin: 50px auto;
+      padding: 0 50px;
+      width: 90%;
+    }
+
+    .contenedor-una-imagen .caja-imagen-galeria {
+
+      width: 100%;
+    }
+
+      /* 🌟 ANIMACIÓN AUTOMÁTICA EN BUCLE PARA EL LOGO/BANNER PRINCIPAL */
+      .efecto-interactivo img {
+        animation: flotacionSutil 1.5s ease-in-out infinite alternate;
+        box-shadow: 0 10px 40px 10px rgba(128, 0, 32, 0.4); /* Aura burdeo suave fija */
+        
+        /* 🔥 BORDES REDONDOS EN CELULAR */
+        border-radius: 100px !important; /* Ajusta este número si lo quieres más o menos redondo */
+        
+        /* Mantenemos los bloqueos anteriores para que no se deforme al tocarlo */
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        pointer-events: auto !important; /* Permitimos el click para que baje la página */
+      }
+
+
+    /* 🛠️ ESTILOS PARA EL CAMBIO INMEDIATO DE IMAGEN (EVITA EL FONDO NEGRO) */
+    .bloque-imagen-fijo {
+        position: relative;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .bloque-imagen-fijo .img-base {
+        display: block;
+        width: 100%;
+        height: auto;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .bloque-imagen-fijo .img-encima {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .bloque-imagen-fijo:hover .img-encima {
+        opacity: 1;
+    }
+
+    .bloque-imagen-fijo:hover .img-base {
+        opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- EL MENÚ RESPONSIVO -->
+  <nav class="navbar">
+    <div class="logo">Galería del tiempo</div>
+    
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="libro.html">Libros</a></li>
+      <li><a href="artemanual.html">Arte manual</a></li>
+      <li><a href="artedigital.html">Arte digital</a></li> 
+      <li><a href="corto.html">Cortometraje</a></li>
+      <li><a href="comic.html">Comic</a></li>
+      <li><a href="youtube.html">Youtube</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+
+  <!-- 🚨 Imagen interactiva inicio 🚨 -->
+  <div class="contenedor-una-imagen" style="margin: 200px auto 130px !important;">
+    <div class="caja-imagen-galeria efecto-interactivo">
+      <a href="#aqui">
+        <img src="imagenes/trazoeterno1.png" alt="Ilustración interactiva">
+      </a>
+    </div>
+  </div>
+
+  <!-- TÍTULO DE DESTINO (Con el ID "aqui") -->
+  <div class="seccion-texto">
+    <p class="texto-centrado" id="aqui"> ━━━━⊱♛⊰━━━━ </p>
+  </div>
+  <h1 class="texto-centrado">Bienvenido a la galería del tiempo</h1>
+
+  <!-- 🚀 BLOQUE DE BIENVENIDA CORREGIDO -->
+  <div class="contenedor-bloque">
+      
+      <!-- Contenedor con comportamiento controlado dentro de tu columna original -->
+      <div class="bloque-imagen">
+          <div class="bloque-imagen-fijo">
+              <img src="imagenes/zen.jpg" alt="Descripción" class="img-base">
+              <img src="imagenes/zen2.jpg" alt="Descripción hover" class="img-encima">
+          </div>
+      </div>
+
+      <!-- Texto a la derecha -->
+      <div class="bloque-texto">
+        <h2>✨Joy of Missing Out✨</h2>
+        <p>¡Hola! Soy Trazo Eterno y quiero darte la bienvenida a mi galería de arte digital.
+        Mi pasión es el dibujo y la escritura, pero no soy muy amig@ de las redes sociales, por lo que he decidido crear está pagina web a mi gusto para publicar mi arte, ya que soy ingeniera en informática de profesión.</p>
+        <p>En esta web encontrarás un poco de todo. Arte manual, arte digital, información sobre mi primer libro junto con sus respectivas ilustraciones, mi canal de youtube, y una sección de "contacto" para comiciones de arte, por si estuvieras interesado en comprar o mandar a hacer una de mis obras con mi estilo artístico.</p>
+        <p>Permítete un respiro y disfruta de mi arte💫</p>
+      </div>
+
+  </div> <!-- Cierre correcto del bloque general -->
+
+  <div class="seccion-texto">
+    <p class="texto-centrado"> ━━━━⊱♛⊰━━━━ </p>
+  </div>
+
+   <!-- 📈 CONTADOR DE VISITAS REALES ANIMADO (AL MEDIO)
+  <div class="contenedor-bloque" style="margin: 80px auto; text-align: center;">
+      <div class="caja-contador-real">
+          <p class="titulo-contador">Visitantes Totales en de la Galería del Tiempo</p>
+           El número empezará en 0 y subirá rápidamente hasta el valor real 
+          <span id="numero-real" class="numero-movimiento">0</span>
+          <p class="subtitulo-contador">¡Gracias por vistar!</p>
+      </div>
+  </div>-->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="texto-centrado">
+        <h2 class="texto-centrado">↜ Galería del tiempo ↝</h2>
+        <h3 class="texto-centrado">⊱Portafolio Artístico⊰</h3>
+      </div>
+     
+    <div class="footer-bottom">
+      <p>&copy; Trazo Eterno 2026. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // 🚨 CAMBIA ESTO: Pon un nombre único para tu web (sin espacios ni caracteres especiales)
+        const claveUnicaWeb = "trazoeternoweb"; 
+        
+        // Llamamos a la API real para registrar la visita y obtener el total
+        fetch(`https://countapi.xyz{claveUnicaWeb}/visitas`)
+          .then(res => res.json())
+          .then(data => {
+              const valorReal = data.value;
+              animarContadorReal(valorReal);
+          })
+          .catch(err => {
+              console.log("Error con la API, usando respaldo local:", err);
+              // Respaldo por si la API externa tiene lag: usa la memoria del navegador
+              let visitasLocales = localStorage.getItem('visitas_locales') || 1;
+              visitasLocales = parseInt(visitasLocales) + 1;
+              localStorage.setItem('visitas_locales', visitasLocales);
+              animarContadorReal(visitasLocales);
+          });
+
+        // 🎢 Función que hace el efecto de números en movimiento hacia el valor real
+        function animarContadorReal(valorDestino) {
+            const contadorElemento = document.getElementById('numero-real');
+            let valorActual = 0;
+            
+            // Ajusta la velocidad según qué tan grande sea el número
+            const speed = valorDestino > 100 ? Math.ceil(valorDestino / 50) : 1; 
+            
+            const actualizar = () => {
+                if (valorActual < valorDestino) {
+                    valorActual += speed;
+                    if (valorActual > valorDestino) valorActual = valorDestino;
+                    contadorElemento.innerText = valorActual.toLocaleString();
+                    setTimeout(actualizar, 20);
+                } else {
+                    contadorElemento.innerText = valorDestino.toLocaleString();
+                }
+            };
+            actualizar();
+        }
+    });
+  </script>-->
+    <!-- 📵 ESCUDO MAESTRO: ANULA EL CLICK LARGO Y EL MENÚ FLOTANTE DE IMÁGENES EN CELULARES -->
+  <script>
+    if (window.innerWidth <= 768) {
+      // 1. Interceptamos y matamos el clic en los enlaces que envuelven las fotos
+      document.querySelectorAll('a').forEach(enlace => {
+        if (enlace.querySelector('img') || enlace.classList.contains('zoom-imagen')) {
+          enlace.addEventListener('click', (e) => {
+            e.preventDefault(); // Cancela la apertura del Lightbox flotante
+            e.stopPropagation(); // Evita que otros scripts lean el clic
+          }, { capture: true });
+        }
+      });
+
+      // 2. Interceptamos el toque del dedo directamente sobre todas las fotos
+      document.querySelectorAll('img').forEach(foto => {
+        foto.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { capture: true });
+
+        // Bloquea el menú contextual si mantienen el dedo presionado
+        foto.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+      });
+    }
+  </script>
+  <script src="js/bloqueo.js"></script>
+
+</body>
+</html>

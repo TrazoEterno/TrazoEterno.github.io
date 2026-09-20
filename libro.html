@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería del tiempo</title>
+  
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="icon" type="image/png" href="imagenes/logo.png">
+
+  <!-- ZOOM DE LA IMAGEN (Alineación perfecta por márgenes) -->
+
+  <style>
+    .zoom-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      
+      /* Habilitamos el scroll elástico en cualquier dirección */
+      overflow: auto; 
+      display: block;
+      text-align: center;
+    }
+
+    .zoom-overlay.activo {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Imagen Base (Fase Normal al abrirse) */
+    .zoom-overlay img {
+      max-width: 85%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      cursor: zoom-in;
+      display: inline-block;
+      
+      /* Animación ultra suave cuando cambia de tamaño */
+      transition: width 0.25s ease-out, max-width 0.25s ease-out, max-height 0.25s ease-out, margin 0.25s ease-out;
+      
+      /* Centrado vertical clásico */
+      position: relative;
+      margin: 7.5vh auto; 
+    }
+
+        /* CLIC 1: Primer Zoom (Acercamiento sutil, apenas un poco más que la pantalla) */
+    .zoom-overlay img.zoom-nivel-1 {
+      width: 50% !important; /* Crece suavemente al ancho total de la pantalla */
+      max-width: none !important;
+      max-height: none !important;
+      margin:auto;
+    }
+
+    /* CLIC 2: Segundo Zoom (Un paso intermedio cómodo) */
+    .zoom-overlay img.zoom-nivel-2 {
+      width: 80% !important; /* Un 35% más grande para empezar a notar detalles */
+      max-width: none !important;
+      max-height: none !important;
+      margin: auto; 
+    }
+
+    /* CLIC 3: Tercer Zoom (Máximo detalle, el tope para examinar la ilustración) */
+    .zoom-overlay img.zoom-nivel-3 {
+      width: 100% !important; /* Casi el doble del tamaño de la pantalla, ideal para el texto y trazos */
+      max-width: none !important;
+      max-height: none !important;
+      margin: auto; 
+      cursor: zoom-out; /* Muestra la lupa de menos (-) */
+    }
+
+    .zoom-imagen {
+      cursor: zoom-in;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Galería del tiempo</div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="libro.html">Libros</a></li>
+      <li><a href="artemanual.html">Arte manual</a></li>
+      <li><a href="artedigital.html">Arte digital</a></li> 
+      <li><a href="corto.html">Cortometraje</a></li>
+      <li><a href="comic.html">Comic</a></li>
+      <li><a href="youtube.html">Youtube</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+    <div class="contenedor-una-imagen" style="margin: 100px auto 100px !important;">
+      <h1 class="texto-centrado" >Arte de mi libro</h1>
+    </div>
+      
+
+  <div class="contenedor-bloque">
+    <div class="bloque-imagen">
+      <img src="imagenes/portadalibro.jpg" alt="Descripción de la imagen">
+    </div>
+    <div class="bloque-texto">
+      <h2>No es cuestión de tiempo</h2>
+      <p>Este es un libro en el que he trabajado desde que estoy en la escuela. Me demoré mas de 10 años en escribirlo, tratando de hacer una historia consistente y siempre procurando de que todo en ella calzara de manera correcta, ya que es una novela de ciencia ficción la cual tiene eventos históricos reales, por lo que pasé muchas horas estudiando y tomando apuntes para que así todos los eventos descritos en el libro fueran históricamente correctos.</p>
+      <p>Para las ilustraciones me demoré poco más de un año, siendo la mas tardada la portada. Quería que los dibujos de cada capítulo se sintieran acordes con la historia que contaba sin dar muchas pistas sobre la trama, y debo decir que el jugar con los colores primarios de cada una de las ilustraciones fue un desafío que disfrute enormemente.</p>
+      <p>Actualmente mi libro se encuentra disponible de manera gratuita en dos plataforamas de lectura digital para que puedas leerlo.</p>
+    </div>
+  </div>
+
+  <h2 class="texto-centrado">Lee mi libro en:</h2>
+
+  <div class="contenedor-botones">
+    <a href="https://www.wattpad.com/story/376907561-no-es-cuesti%C3%B3n-de-tiempo-hope" target="_blank" class="boton-externo">Wattpad</a>
+    <a href="https://getinkspired.com/es/story/665325/no-es-cuestion-de-tiempo-hope/" target="_blank" class="boton-externo">Inkspired</a>
+  </div>
+
+  <div class="seccion-texto">
+    <p class="texto-centrado"> ━━━━⊱♛⊰━━━━ </p>
+  </div>
+
+  <h2 class="texto-centrado">¿Quieres hacer un aporte voluntario?</h2>
+
+  <div class="contenedor-bloque">
+    <p class="texto-justificado">Si te ha gustado mi libro y quieres apoyarme económicamente por mi trabajo, puedes comprar este libro en mercado libre (Chile) donde, una vez que lo compres, te enviaré una copia digital del mismo con sus respectivas ilustraciones. Esto me ayudaría enormemente a seguir trabajando en otras obras literarias sin mencionar que sería un lindo gesto.</p> 
+ 
+  </div>
+
+  <div class="contenedor-botones">
+    <a href="https://www.mercadolibre.cl/no-es-cuestion-de-tiempo-hope/up/MLCU3796530236?pdp_filters=item_id:MLC1857799827" target="_blank" class="boton-externo">Comprar Libro</a>
+  </div>
+ 
+  <div class="seccion-texto">
+    <p class="texto-centrado"> ━━━━⊱♛⊰━━━━ </p>
+  </div>
+  <div class="seccion-texto"style="margin: 100px auto 100px !important;">
+  <h1 class="texto-centrado">Ilustraciones en orden por capítulo</h1>
+</div>
+  <!-- Dos imágenes -->
+  <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/1.jpg">
+        <img src="imagenes/1.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/2.jpg">
+        <img src="imagenes/2.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/3.jpg">
+        <img src="imagenes/3.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/4.jpg">
+        <img src="imagenes/4.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/5.jpg">
+        <img src="imagenes/5.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/6.jpg">
+        <img src="imagenes/6.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/7.jpg">
+        <img src="imagenes/7.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/8.jpg">
+        <img src="imagenes/8.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/9.jpg">
+        <img src="imagenes/9.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/10.jpg">
+        <img src="imagenes/10.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/11.jpg">
+        <img src="imagenes/11.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/12.jpg">
+        <img src="imagenes/12.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/13.jpg">
+        <img src="imagenes/13.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/14.jpg">
+        <img src="imagenes/14.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+    <div class="contenedor-dos-imagenes">
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/15.jpg">
+        <img src="imagenes/15.jpg" alt="Descripción de la primera imagen">
+      </div>
+    </div>
+    
+    <div class="caja-imagen-galeria">
+      <div class="zoom-imagen" data-src="imagenes/16.jpg">
+        <img src="imagenes/16.jpg" alt="Descripción de la segunda imagen">
+      </div>
+    </div>
+  </div>
+<!-- contenedor especial para cuando es una sola imagen centrada -->
+<div class="contenedor-una-imagen">
+  <div class="caja-imagen-galeria">
+    <!-- Mantiene la clase .zoom-imagen para que el JavaScript la reconozca automáticamente -->
+    <div class="zoom-imagen" data-src="imagenes/17.jpg">
+      <img src="imagenes/17.jpg" alt="Última ilustración del libro">
+    </div>
+  </div>
+</div>
+
+
+  <!-- CONTENEDOR PARA EL VISOR DE ZOOM -->
+  <div class="zoom-overlay" id="zoomOverlay">
+    <img src="" id="zoomImg" alt="Zoom de imagen">
+  </div>
+
+  <div class="seccion-texto">
+    <p class="texto-centrado"> ━━━━⊱♛⊰━━━━ </p>
+  </div>
+
+  <!-- footerrrr---------------------------------------------------------------------------- -->
+   <footer class="footer">
+    <div class="texto-centrado">
+        <h2 class="texto-centrado">↜ Galería del tiempo ↝</h2>
+        <h3 class="texto-centrado">⊱Portafolio Artístico⊰</h3>
+      </div>
+     
+    <div class="footer-bottom">
+      <p>&copy; Trazo Eterno 2026. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+
+
+  <!-- SCRIPT INTEGRAL DE CONTEO DE CLICS (Corregido y verificado) -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const disparadores = document.querySelectorAll('.zoom-imagen');
+      const overlay = document.getElementById('zoomOverlay');
+      const zoomImg = document.getElementById('zoomImg');
+      
+      let nivelActual = 0;
+
+      function resetearClasesZoom() {
+        zoomImg.classList.remove('zoom-nivel-1', 'zoom-nivel-2', 'zoom-nivel-3');
+        zoomImg.style.width = '';
+        nivelActual = 0;
+      }
+
+      // CAPTURA AUTOMÁTICA: Detecta cuál foto pinchaste y carga su ruta exacta
+      disparadores.forEach(box => {
+        box.addEventListener('click', function() {
+          const rutaImagen = this.getAttribute('data-src'); // Lee la ruta de la foto clickeada
+          zoomImg.setAttribute('src', rutaImagen);          // Se la pasa al visor gigante
+          resetearClasesZoom();
+          overlay.classList.add('activo');
+        });
+      });
+
+      // Control de los 3 niveles de Zoom de forma fluida
+      zoomImg.addEventListener('click', function(e) {
+        e.stopPropagation();
+        nivelActual++;
+
+        if (nivelActual === 1) {
+          zoomImg.classList.add('zoom-nivel-1');
+        } 
+        else if (nivelActual === 2) {
+          zoomImg.classList.remove('zoom-nivel-1');
+          zoomImg.classList.add('zoom-nivel-2');
+        } 
+        else if (nivelActual === 3) {
+          zoomImg.classList.remove('zoom-nivel-2');
+          zoomImg.classList.add('zoom-nivel-3');
+        } 
+        else {
+          resetearClasesZoom();
+        }
+      });
+
+      // Clic fuera en el fondo negro: cierra el visor
+      overlay.addEventListener('click', function() {
+        overlay.classList.remove('activo');
+        setTimeout(() => { 
+          zoomImg.setAttribute('src', ''); 
+          resetearClasesZoom();
+        }, 300);
+      });
+    });
+  </script>
+    <!-- 📵 ESCUDO MAESTRO: ANULA EL CLICK LARGO Y EL MENÚ FLOTANTE DE IMÁGENES EN CELULARES -->
+  <script>
+    if (window.innerWidth <= 768) {
+      // 1. Interceptamos y matamos el clic en los enlaces que envuelven las fotos
+      document.querySelectorAll('a').forEach(enlace => {
+        if (enlace.querySelector('img') || enlace.classList.contains('zoom-imagen')) {
+          enlace.addEventListener('click', (e) => {
+            e.preventDefault(); // Cancela la apertura del Lightbox flotante
+            e.stopPropagation(); // Evita que otros scripts lean el clic
+          }, { capture: true });
+        }
+      });
+
+      // 2. Interceptamos el toque del dedo directamente sobre todas las fotos
+      document.querySelectorAll('img').forEach(foto => {
+        foto.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { capture: true });
+
+        // Bloquea el menú contextual si mantienen el dedo presionado
+        foto.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+      });
+    }
+  </script>
+  <script src="js/bloqueo.js"></script>
+
+</body>
+
+</html>

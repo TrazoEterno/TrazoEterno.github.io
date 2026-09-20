@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Galería del tiempo</title>
+  
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/body.css">
+  <link rel="icon" type="image/png" href="imagenes/logo.png">
+
+  <style>
+    /* 🎨 ESTILOS EXCLUSIVOS PARA EL FORMULARIO ELEGANTE */
+    .seccion-contacto {
+        max-width: 600px;
+        margin: 180px auto 100px auto; /* Espacio para que no choque con el menú */
+        padding: 0 20px;
+    }
+
+    .caja-formulario {
+        background: rgba(255, 255, 255, 0.02);
+        border: 2px solid rgba(128, 0, 32, 0.4); /* Borde burdeo sutil */
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+    }
+
+    .grupo-formulario {
+        margin-bottom: 25px;
+    }
+
+    .grupo-formulario label {
+        display: block;
+        color: #cccccc;
+        margin-bottom: 8px;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+    }
+
+    /* Estilo de los campos de texto */
+    .grupo-formulario input,
+    .grupo-formulario textarea {
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        color: #ffffff;
+        font-family: sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    /* Al hacer clic en un campo para escribir */
+    .grupo-formulario input:focus,
+    .grupo-formulario textarea:focus {
+        outline: none;
+        border-color: #800020; /* Cambia a burdeo */
+        box-shadow: 0 0 10px rgba(128, 0, 32, 0.3);
+    }
+
+    .grupo-formulario textarea {
+        height: 150px;
+        resize: vertical; /* Permite estirar hacia abajo pero no a los lados */
+    }
+
+    /* Botón Burdeo de Enviar */
+    .boton-enviar {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background-color: #800020; /* Tu burdeo característico */
+        color: #ffffff;
+        border: 2px solid #800020;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .boton-enviar:hover {
+        background-color: transparent;
+        color: #800020;
+        box-shadow: 0 0 15px rgba(128, 0, 32, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- EL MENÚ RESPONSIVO (Igual a tus otras páginas) -->
+  <nav class="navbar">
+    <div class="logo">Galería del tiempo</div>
+    <button class="menu-toggle" id="menuToggle">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="libro.html">Libros</a></li>
+      <li><a href="artemanual.html">Arte manual</a></li>
+      <li><a href="artedigital.html">Arte digital</a></li> 
+      <li><a href="corto.html">Cortometraje</a></li>
+      <li><a href="comic.html">Comic</a></li>
+      <li><a href="youtube.html">Youtube</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENEDOR PRINCIPAL DEL FORMULARIO -->
+  <section class="seccion-contacto">
+    <div class="caja-formulario">
+      <h1 style="color: #ffffff; text-align: center; margin-bottom: 30px; font-family: sans-serif; font-size: 1.8rem;">¿Te gustó mi arte?</h1>
+      <p class="texto-justificado" style="color: #cccccc; margin-bottom: 35px; line-height: 1.6;">Siempre puedes mandarme un mensaje para cotizar un dibujo. No pongo ningún tipo de precio en la página ya que este variará según el tipo de arte, el tamaño de la obra y la cantidad de elementos y colores utilizados.</p>
+
+      <!-- 🚨 FORMULARIO ENLAZADO CORRECTAMENTE CON FORMSUBMIT -->
+      <form action="https://formsubmit.co" method="POST">
+        
+        <!-- Nombre -->
+        <div class="grupo-formulario">
+          <label for="nombre">Nombre / Pseudónimo</label>
+          <input type="text" name="name" id="nombre" required placeholder="Tu nombre">
+        </div>
+
+        <!-- Correo de quien te escribe -->
+        <div class="grupo-formulario">
+          <label for="email">Tu Correo Electrónico</label>
+          <input type="email" name="email" id="email" required placeholder="nombre@correo.com">
+        </div>
+
+        <!-- Mensaje -->
+        <div class="grupo-formulario">
+          <label for="mensaje">Mensaje</label>
+          <textarea name="message" id="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+
+        <!-- Configuraciones extras de FormSubmit -->
+        <input type="hidden" name="_next" value="https://tuweb.com"> <!-- Cambia esto cuando tu web esté subida para que vuelva a la página de contacto -->
+        <input type="hidden" name="_captcha" value="false"> <!-- Apaga el captcha molesto -->
+
+        <!-- Botón de enviar -->
+        <button type="submit" class="boton-enviar">Enviar Mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- SCRIPT DEL MENÚ (Para que funcione en celulares) -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+
+  <!-- FOOTER (Ubicado correctamente adentro de body) -->
+    <footer class="footer">
+    <div class="texto-centrado">
+        <h2 class="texto-centrado">↜ Galería del tiempo ↝</h2>
+        <h3 class="texto-centrado">⊱Portafolio Artístico⊰</h3>
+      </div>
+     
+    <div class="footer-bottom">
+      <p>&copy; Trazo Eterno 2026. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+    <!-- 📵 ESCUDO MAESTRO: ANULA EL CLICK LARGO Y EL MENÚ FLOTANTE DE IMÁGENES EN CELULARES -->
+  <script>
+    if (window.innerWidth <= 768) {
+      // 1. Interceptamos y matamos el clic en los enlaces que envuelven las fotos
+      document.querySelectorAll('a').forEach(enlace => {
+        if (enlace.querySelector('img') || enlace.classList.contains('zoom-imagen')) {
+          enlace.addEventListener('click', (e) => {
+            e.preventDefault(); // Cancela la apertura del Lightbox flotante
+            e.stopPropagation(); // Evita que otros scripts lean el clic
+          }, { capture: true });
+        }
+      });
+
+      // 2. Interceptamos el toque del dedo directamente sobre todas las fotos
+      document.querySelectorAll('img').forEach(foto => {
+        foto.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { capture: true });
+
+        // Bloquea el menú contextual si mantienen el dedo presionado
+        foto.addEventListener('contextmenu', (e) => {
+          e.preventDefault();
+        });
+      });
+    }
+  </script>
+  <script src="js/bloqueo.js"></script>
+
+</body>
+</html>
+
